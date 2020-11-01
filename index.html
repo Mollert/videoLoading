@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+	<meta name="theme-color" content="#F5DEB3"/>
+
+	<title>Preloading video so to play through in HTML5 with JavaScript</title><!-- 60 characters -->
+	
+	<meta name="description" content="When a user selects a video to play, how to avoid the annoying circular wait arrow in the middle of the video. It’s all in the timing."><!-- 134 characters -->
+	
+	<link rel="icon" href="./assets/favImg/favicon.ico" type="image/x-icon">
+
+	<link rel="apple-touch-icon" sizes="180x180" href="./assets/favImg/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="./assets/favImg/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="./assets/favImg/favicon-16x16.png">
+
+	<link rel="manifest" href="./manifest.webmanifest">
+	<link rel="stylesheet" type="text/css" href="./indexCSS.css">
+
+</head>
+<body>
+
+	<main id="mainBin">
+		<div id="introduction">
+			<div><h1>When has enough video loaded to play through?</h1></div>
+			<div id="lineTwo"><h2>Or how to eliminate that annoying circular wait arrow.</h2></div>
+			<div id="lineThree"><h2>Here's my solution.</h2></div>
+		</div>
+
+		<div id="container">
+			<div><h3>
+				On a site of mine, I've listed a number of videos which the user could pick from to play.  They all play at the same location on the page away from where they are selected.  So to enhance the viewing experience, I wanted to make sure that enough of the video had been loaded so it would play through before I started to play it.
+			</h3></div>
+			<div class="bothText"><h3>
+				I looked around for a solution . . . and the closest I found was using the JavaScript "readyState" property which returns a zero (0 HAVE_NOTHING) through four (4 HAVE_ENOUGH_DATA) depending on the amount of data that is loaded.  Sure there are other JavaScript properties that provide data about what is happening while the video is playing but only the "readyState" anticipates the playing.  It just didn't work consistently for me and the reason may be that each browser handles media loading its own way.  This goes back to the indecisiveness when the HTML5 &lt;video&gt; element was created.
+			</h3></div>
+			<div><h3>
+				A good stab at it was done by Mike Thomas who matched this property with the setTimeout function in order to watch the loading of the video and tell when to start the play function.  <a href="http://atomicrobotdesign.com/blog/web-development/check-when-an-html5-video-has-loaded/" rel="noreferrer" target="_blank">His solution</a> can be found at this link.  At the bottom of the page, he discusses the "readyState" and references the <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement" rel="noreferrer" target="_blank">MDN</a> page defining it.  I just didn't find it consistent enough for me either.
+			</h3></div>
+			<div class="topText"><h3>
+				But I did end up using the setTimeout function as part for my solution.  So let's get to my solution.
+			</h3></div>
+
+			<div class="middleLine"></div>			
+
+			<div>
+				<img class="codeImg" src="./image/stage.png" alt="Creating the Stage"/>
+				<div class="topText"><h3>First I need a place to play the videos.  And to the video element I've added the controls and a poster to take the place of the video when one is not playing.</h3></div>
+			</div>
+
+			<div class="middleLine"></div>			
+
+			<div>
+				<img class="codeImg" src="./image/pickSong.png" alt="Song Options"/>
+				<div class="topText"><h3>Next, I need a listing of the songs/videos available for user to select from.</h3></div>
+			</div>
+
+			<div class="middleLine"></div>			
+
+			<div>
+				<img class="codeImg" src="./image/code.png" alt="Showing Code"/>
+				<div class="bothText"><h3>
+					And finally, what I settled on.  I added an Event Listener to watch when a song image is selected.  I then use the alternative tag to single out the selected song and connect it to the variable "whichVideo".  The variable gets linked to the video element, "playSong," using the getElementById method.  This should start the video loading.  I use the setTimeout function to wait for 0.8 seconds before starting the video with the play function.  The scrollTo method just moves the video stage into view on the screen.
+				</h3></div>
+				<div><h3>
+					So there is the secret sauce.  The setTimeout function.  The 0.8 second wait seems to give the loading enough of a head start before starting to play the video.  At least for all of my videos, which average about 160MG.  Plus you really don't even notice the delay being the view is being shifted to the "stage" from where the songs are selected.  Check this out in real time at <a href="https://david-n-concert.com" rel="noreferrer" target="_blank">my site</a>.
+				</h3></div>					
+			</div>
+		</div>
+
+		<div id="bottomLine"></div>
+	</main>
+
+</body>
+</html>

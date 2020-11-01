@@ -1,0 +1,22 @@
+{
+  "short_name": "Video preloading",
+  "name": "Video preloading",
+  "description": "Preloading video in HTML5 with JavaScript",
+  "icons": [
+    {
+      "src": "./assets/favImg/android-chrome-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "./assets/favImg/android-chrome-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "https://preload-video.com",
+  "background_color": "#FFFFFF",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#F5DEB3"
+}

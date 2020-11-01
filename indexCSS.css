@@ -1,0 +1,77 @@
+
+@font-face { src: url("./assets/Amazing.otf"); font-family: Amaz; }
+@font-face { src: url("./assets/LSR.ttf"); font-family: lsr; }
+
+html, body { margin: 0; padding: 0; }
+
+h1 { margin: 0; font-size: 2.2rem; }
+h2 { margin: 0; font-size: 1.6rem; }
+h3 { margin: 0; font-size: 1.2rem; }
+h4 { margin: 0; font-size: 1.0rem; }
+
+#mainBin {
+	font-family: lsr;
+	width: 86vw;
+	height: auto;
+	margin-left: 7vw;
+	background-color: wheat;
+}
+
+#introduction {
+	font-family: Amaz;
+	font-weight: bold;
+	padding: 4rem 2rem 3rem 2rem;
+	text-align: center;
+}
+
+#lineTwo {
+	padding-top: 1.2rem;
+}
+
+#lineThree {
+	padding-top: 0.6rem;
+}
+
+#container {
+	margin: 0 4rem;
+	line-height: 1.7;
+	letter-spacing: 0.1rem;
+}
+
+.bothText {
+	margin: 1rem 0;
+}
+
+.topText {
+	margin: 1rem 0 0 0;
+}
+
+.middleLine {
+	height: 2.4rem;
+	margin: 2rem 4rem 0 4rem;
+	border-top: 0.4rem solid tan;
+}
+
+.codeImg {
+	max-width: 100%;
+	height: auto;
+}
+
+#bottomLine {
+	height: 4rem;
+	margin: 4rem 4rem 0 4rem;
+	border-top: 0.4rem solid tan;
+}
+
+
+@media screen and (max-width: 660px) {
+	#container {
+		margin: 0 2rem;
+	}
+	.middleLine {
+	margin: 2rem 2rem 0 2rem;
+	}
+	#bottomLine {
+	margin: 4rem 2rem 0 2rem;
+	}
+}
